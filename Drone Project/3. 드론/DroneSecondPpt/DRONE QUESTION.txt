@@ -1,0 +1,15 @@
+안녕하세요
+
+아두이노 multiwii코드를 이용해서 drone을 날리고 있었는데요
+
+Pixycam을 이용해서 드론조정을 할려고 하는데
+
+코드를 합칠려고 하는데 어떻게 해야하는지 몰라서 이렇게 질문 남깁니다
+
+Pixycam code에 있는 setup문 내용을 multiwii setup에 넣고
+
+Pixycam code에 있는 loop문 내용을 multiwii loop에 넣었는데도 안되네요 ㅠ.;
+
+pixy와 multiwii 코드는 첨부파일로 올렸습니다.
+
+고수님들 제발 도와주세요 ㅠㅠ

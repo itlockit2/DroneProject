@@ -1,0 +1,19 @@
+Error = Setpoint - input;  //오차(Error)  = 설정값(Setpoint) - 입력값(input)
+PTerm = Kp * Error; // 비례항(PTerm) = 비례매개변수(Kp) * 오차
+ITerm = Ki * Error; // 적분항(ITerm) = 적분매개변수(Ki) * 오차
+
+dinput = input - previnput;
+DTerm = -Kd * (dinput / dt);
+
+
+/*
+dError = Error - prevError; // 오차변화(dError) = 현재오차(Error) - 이전오차 (prevError)
+DTerm = kd * (dError / dt); //미분항(DTerm) = 미분매개변수(Kd) * 센서입력주기(dt)
+
+Error가 의미하는것은 설정값 과 입력값의 변경이다. 따라서 Setpoint의 변경은 내부적인 의도에 의해 발생한다.
+하지만 DTerm 값의 의미는 급격하게 변하는 외부적인 의도를 파악하는것이다. 따라서 
+Error에서 Setpoint에 대한 값을 없애줘야한다.
+
+*/
+
+Output = PTerm + ITerm + DTerm;

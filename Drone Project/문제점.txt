@@ -1,0 +1,64 @@
+1. 멀티위  ESC 켈리브레이션이 작동하지 않습니다.
+멀티위 Config.h 의 1146번째줄
+    //#define ESC_CALIB_CANNOT_FLY  // uncomment to activate
+의 주석을 제거하고 업로드를 한뒤
+배터리를 연결해도 아무 반응이 없습니다.
+제가 알기로는 최대속도로 모터가 돌아가는걸로 알고 있는데
+아무 반응이 없습니다.
+
+2. 다른 소스코드로 하면 3번은 움직임 
+
+인터넷 서핑을 하다가 다음과 같은 코드를 찾았습니다.
+
+/*
+ *  ESC Calibration Code
+ *  dronix.kr
+ */
+ 
+#include <Servo.h>
+ 
+#define MAX_SIGNAL 2000
+#define MIN_SIGNAL 1000
+#define MOTOR_PIN 10
+ 
+Servo motor;
+ 
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Program begin...");
+  Serial.println("This program will calibrate the ESC.");
+ 
+  motor.attach(MOTOR_PIN);
+ 
+  Serial.println("Now writing maximum output.");
+  Serial.println("Turn on power source, then wait 2 seconds and press any key.");
+  motor.writeMicroseconds(MAX_SIGNAL);
+ 
+  // Wait for input
+  while (!Serial.available());
+  Serial.read();
+ 
+  // Send min output
+  Serial.println("Sending minimum output");
+  motor.writeMicroseconds(MIN_SIGNAL);
+ 
+}
+ 
+void loop() {  
+ 
+}
+
+이 코드를 이용해서 #define MOTOR_PIN 에 3,9,10,11 값을 입력해서 
+esc켈리브레이션을 할려고 했습니다.
+이 코드를 사용해서 esc 켈리브레이션을 하면 모터는 돌어가지 않고 beep음이 나는걸로 알고 있습니다.
+하지만 9,10,11은 정상적으로 작동하는데
+3번만 beep음이 나지 않고 모터가 돌아갑니다. 
+
+3. 스로틀 올리면 FRONT_R , REAR_L 이 떨어져요
+https://www.youtube.com/watch?v=TAwerohWKhA&feature=youtu.be
+
+스로틀을 올리면 다 올라가다가 FRONT_R 과 REAR_L이 내려갑니다.
+PID랑 관련이 있을꺼 같아서 P값을 20까지 올려봣는데 
+별다른 차이를 못느꼇습니다.
+
+

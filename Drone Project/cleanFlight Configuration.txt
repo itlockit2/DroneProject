@@ -1,0 +1,19 @@
+CleanFlight Configuration
+
+1. Auto Connect는 해제한다.
+
+2. FirmWare는 Naze를 올린다. 
+
+3. Connect를 누르지 말고 Flash Firmware를 눌러서 펌웨어를 올린다.
+
+4. 그다음에 Connect를 누른다.
+
+5. Setup에 들어가서 ACC캘리브레이션을 해준다.
+
+6. Ports에서 MSP는 Disable 하지 말것 다시 펌웨어를 올려야 한다.
+
+7. 설정 하나가 끝나면 Port에서 Save&Reboot를 해준다.
+
+8. Configuration 에서 ESC/Motor features 설정에서 
+Motor_Stop - 시동이 걸렸을때 모터가 돌아가지 않게 한다.
+ONESTOP125 - 

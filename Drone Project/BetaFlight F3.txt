@@ -1,0 +1,53 @@
+I-SUB는 쓰지 않고 RX에서 따로 나와있는 선인 PPM을 사용한다
+
+FPV는 비행에 관련이 없기 떄문에 FC에 연결하지 않는다.
+
+카메라에는 3개의 선이 있다 5V, Ground, Video선 
+
+VTX에는 비디오선과 오디오선이 있지만 오디오선은 쓰지않고 
+
+카메라의 Video선과 VTX의 비디오선을 연결해준다.
+
+카메라와 VTX는 PDB에서 전원공급을 받는다.
+
+Buzzer DIN 은 LED STREAM과 연결을 해준다. 되도록 PDB에 연결하는게 좋다.
+
+-----------------------------------------------------------------------
+1. Set up - Calibration 실행
+
+2. Port는 건들지 말것 
+
+3. Configuration - Quad X 
+* Multi shot(빠른속도)을 사용한다 ESC mortor 에서  or One Shot125(안정적)
+* Disarm 을 켜준다
+* 기체이름은 조이름으로 설정
+* 카메라 앵글 설정은 건들지 말것
+* 리시버는 PPMRTX 방식을 사용한다
+* LED STREAM을 제외하고는 다 꺼준다
+* Bettery Voltage 는 버저를 위해서 설정하는것 
+* Current Sensor는 쓸수있는 방법이 없으므로 넘어간다
+
+4. PID Turing
+
+YAW는 PID제어가 의미가 없다.
+
+44 40 30     0.70
+58 50 35     0.70
+70 45          0.75
+
+Angle 50
+
+미세 조정시에는 Rate를 조정하는게 좋다.
+
+5. Mode
+Acro mode - 모든 입력이 사용자의 조작에 달려있다.
+Angle mode - 각도를 최대 제어해준다.
+Horizon mode - 아무제어를 하지않았을때 평형을 유지한다.
+
+
+-----------------------------------------------------
+Blheli Configuration
+
+1.모터의 방향을 설정해준다.
+
+ 
